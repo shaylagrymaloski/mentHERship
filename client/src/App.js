@@ -12,13 +12,14 @@ import {
   Route
 } from "react-router-dom";
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 
 
 function App() {
   return (
     <div className="App">
-      <Header/>
+      {/* <Header/> */}
 
         <Routes>
           <Route index element={<StartPage />} />
@@ -27,7 +28,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/donations" element={<Donation />} />
         </Routes>
-          
+       <Footer/>
     </div>
   );
 }

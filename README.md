@@ -79,4 +79,8 @@ install Hedera's JS SDK with the following commands:
   npm install --save @hashgraph/sdk
 
   npm install dotenv
+  
+ ### React Downloads
+ 
+ npm install react-bootstrap
 
