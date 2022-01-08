@@ -71,3 +71,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Hedera Hashgraph
+
+//install Hedera's JS SDK
+npm install --save @hashgraph/sdk
+npm install dotenv
+
