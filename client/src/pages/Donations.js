@@ -1,11 +1,10 @@
 import "../App.css";
-
+import React from "react";
 
 const DonationPage = () => {
   return (
     <>
-    <header>hello</header>
-    <div> hello</div>
+    <p>DONATIONS</p>
      </>
   );
 };
