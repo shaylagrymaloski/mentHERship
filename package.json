@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "react-router-dom": "^6.2.1"
+  },
+  "resolutions": {
+    "d2/left-pad": "1.1.1",
+    "c/**/left-pad": "^1.1.2"
   }
 }

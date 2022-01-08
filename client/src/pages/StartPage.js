@@ -1,10 +1,13 @@
 import "../App.css";
 import React from "react";
+import logo from '../logo-headtags.png';
 
 const StartPage = () => {
     return (
-      <p><header>START</header>
-      <div> hello</div> </p>
+      <div>
+            <img src={logo} className="App-logo" alt="logo" /> 
+
+      </div>
   
     );
   };

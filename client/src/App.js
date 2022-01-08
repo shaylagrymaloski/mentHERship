@@ -20,7 +20,6 @@ function App() {
     <div className="App">
       <Header/>
 
-      <img src={logo} className="App-logo" alt="logo" /> 
         <Routes>
           <Route index element={<StartPage />} />
           <Route path="/login" element={<Login />} />

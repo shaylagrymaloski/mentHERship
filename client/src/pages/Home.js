@@ -1,12 +1,16 @@
 import "../App.css";
 import React from "react";
+import logo from '../logo-headtags.png';
+
 
 
 const HomePage = () => {
   return (
-    <p><header>HOME</header>
-    <div> hello</div> </p>
+    <div>
+    <img src={logo} className="App-logo" alt="logo" /> 
 
+   
+    </div>
   );
 };
 
