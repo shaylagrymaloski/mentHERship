@@ -74,8 +74,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Hedera Hashgraph
 
-//install Hedera's JS SDK
-npm install --save @hashgraph/sdk
+install Hedera's JS SDK with the following commands:
 
-npm install dotenv
+  npm install --save @hashgraph/sdk
+
+  npm install dotenv
 
