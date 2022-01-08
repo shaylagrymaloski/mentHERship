@@ -3,7 +3,11 @@ import './App.css';
 
 import Home from "./pages/Home";
 import Donation from "./pages/Donations"
-import { Routes, Route } from "react-router-dom";
+
+import {
+  Routes,
+  Route
+} from "react-router-dom";
 import Header from './components/Header';
 
 
@@ -14,11 +18,11 @@ function App() {
       <Header/>
 
       <img src={logo} className="App-logo" alt="logo" />
-
-
-      {/* <Route>
-       // <Route index element={<Home />} />
-      </Route>  */}
+       
+        <Routes>
+          <Route index element={<Home />} />
+        </Routes>
+          
     </div>
   );
 }

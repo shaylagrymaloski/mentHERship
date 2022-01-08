@@ -1,12 +1,12 @@
 import "../App.css";
+import React from "react";
 
 
 const HomePage = () => {
   return (
-    <>
-    <header>hello</header>
-    <div> hello</div>
-     </>
+    <p><header>hello</header>
+    <div> hello</div> </p>
+
   );
 };
 

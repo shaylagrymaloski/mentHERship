@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div className="header">
         <div>Link here </div> 
-        <dive>Link</dive>
+        <div>Link</div>
         
     </div>
   );
