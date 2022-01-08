@@ -1,6 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 
+import Home from "./pages/Home";
+import Donation from "./pages/Donations"
+import { Routes, Route } from "react-router-dom";
+
+
+
 function App() {
   return (
     <div className="App">
@@ -18,6 +24,11 @@ function App() {
           Learn React
         </a>
       </header>
+
+      {/* <Route> */}
+       {/* // <Route index element={<Home />} /> */}
+        {/* <Route path="/donations" element={<Donation />} />
+      </Route> */}
     </div>
   );
 }
