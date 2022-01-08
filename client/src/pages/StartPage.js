@@ -13,8 +13,8 @@ const StartPage = () => {
     return (
       <div>
             <img src={logo} className="App-logo" alt="logo" /> 
-            <div class="login"> 
-              <div> <Link to="/register"><img src={register} /> </Link></div>
+            <div> 
+              <div> <Link to="/register"><img src={register} className="login"/> </Link></div>
               <div >Already Registered? <Link to="/login"><img src={login}/> </Link> </div>
             </div>
             <Footer/>
