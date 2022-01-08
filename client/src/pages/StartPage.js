@@ -4,6 +4,7 @@ import logo from '../logo-headtags.png';
 import register from '../logo/Register.png';
 import login from '../logo/LogIn.png';
 import { Link } from "react-router-dom";
+import Footer from '../components/Footer';
 
 
 
@@ -16,7 +17,10 @@ const StartPage = () => {
               <div> <Link to="/register"><img src={register} /> </Link></div>
               <div >Already Registered? <Link to="/login"><img src={login}/> </Link> </div>
             </div>
+            <Footer/>
       </div>
+
+       
   
     );
   };

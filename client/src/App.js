@@ -6,6 +6,7 @@ import Donation from "./pages/Donations"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import StartPage from "./pages/StartPage"
+import Chat from "./pages/Chat"
 
 import {
   Routes,
@@ -27,8 +28,9 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home />} />
           <Route path="/donations" element={<Donation />} />
+          <Route path="/chat" element={<Chat />} />
         </Routes>
-       <Footer/>
+      
     </div>
   );
 }
