@@ -4,12 +4,14 @@ import './App.css';
 import Home from "./pages/Home";
 import Donation from "./pages/Donations"
 import { Routes, Route } from "react-router-dom";
+import Header from './components/Header';
 
 
 
 function App() {
   return (
     <div className="App">
+      <Header/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
