@@ -1,4 +1,5 @@
 # SHAYLAs notes: client folder contains react app, server folder contains nodejs. To run the react application, cd into the client folder and run the react provided instructions below
+(first run 'npm update' to make sure you have all of the packages in the client folder)
 
 # Getting Started with Create React App
 
