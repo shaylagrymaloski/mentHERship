@@ -35,3 +35,5 @@ class FormValidator {
     }
 }
 export default FormValidator;
+
+//All above code from https://www.tutsmake.com/registration-form-validation-in-react-js/
