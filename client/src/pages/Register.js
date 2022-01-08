@@ -1,6 +1,5 @@
 import "../App.css";
 import React, {Component} from "react";
-import Footer from '../components/Footer';
 import FormValidator from '../FormValidator';
 
 
@@ -94,6 +93,7 @@ class Register extends Component{
             <div className={validation.password_confirmation.isInvalid && 'has-error'}>
             <label htmlFor = "password_confirmation">Confirm Password</label>
             <input type="password" className="form-control" name="password_confirmation" placeholder="Confirm Password" onChange={this.handleInputChange} /> <span className="help-block">{validation.password_confirmation.message}</span> </div>
+            <button onClick={this.handleFormSubmit} className="btn btn-primary"> Register </button>
         </form>
     </div>
   </div>
