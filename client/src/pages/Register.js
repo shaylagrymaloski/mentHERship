@@ -3,6 +3,7 @@ import React, {Component} from "react";
 import FormValidator from '../FormValidator';
 
 
+
 class Register extends Component{
   constructor(){
     super();
@@ -44,6 +45,11 @@ class Register extends Component{
     method: this.passwordMatch,
     validWhen: true,
     message: 'Password and password confirmation do not match.'
+    }, {
+    field: 'university',
+    method: 'isEmpty',
+    validWhen: false,
+    message: 'Enter canadian university.'
     }]);
     this.state = {
     first_name: '',
@@ -51,6 +57,7 @@ class Register extends Component{
     email: '',
     password: '',
     password_confirmation: '',
+    university: '',
     validation: this.validator.valid(),
     }
     this.submitted = false;
@@ -128,28 +135,12 @@ class Register extends Component{
             Mentor
           </label>
         </div>
-        <h4>Do you know which university you’d like to attend or currently attend (in Canada)?</h4>
-            <div className="radio">
-          <label>
-            <input
-              type="radio"
-              value="No"
-              checked={this.state.selectedOption === "No"}
-              onChange={this.onValueChange}
-            />
-            No
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input
-              type="radio"
-              value="Yes"
-              checked={this.state.selectedOption === "Yes"}
-              onChange={this.onValueChange}
-            />
-            Yes
-          </label>
+       
+        <div>
+          <h5>Which university are you interested in?</h5>
+          <div className={validation.email.isInvalid && 'has-error'}>
+            <label htmlFor = "university">Canadian University</label>
+            <input type="string" className="form-control" name="university" placeholder="University" onChange={this.handleInputChange} /> <span className="help-block">{validation.university.message}</span> </div>
         </div>
             <button onClick={this.handleFormSubmit} className="btn btn-primary"> Register </button>
         </form>
@@ -161,3 +152,4 @@ class Register extends Component{
 }
   
   export default Register;
+   
