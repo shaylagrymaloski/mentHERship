@@ -6,6 +6,9 @@ import FormValidator from '../FormValidator';
 class Register extends Component{
   constructor(){
     super();
+
+    this.onValueChange = this.onValueChange.bind(this);
+
     this.validator = new FormValidator([{
       field: 'first_name',
       method: 'isEmpty',
@@ -52,6 +55,8 @@ class Register extends Component{
     }
     this.submitted = false;
   }
+
+
   passwordMatch = (confirmation, state) => (state.password === confirmation)
   handleInputChange = event => {
   event.preventDefault();
@@ -70,6 +75,13 @@ class Register extends Component{
   //success
   }
   }
+
+  onValueChange(event) {
+    this.setState({
+      selectedOption: event.target.value
+    });
+  }
+
   render() {
   let validation = this.submitted ?this.validator.validate(this.state) : this.state.validation
   return (
@@ -93,6 +105,52 @@ class Register extends Component{
             <div className={validation.password_confirmation.isInvalid && 'has-error'}>
             <label htmlFor = "password_confirmation">Confirm Password</label>
             <input type="password" className="form-control" name="password_confirmation" placeholder="Confirm Password" onChange={this.handleInputChange} /> <span className="help-block">{validation.password_confirmation.message}</span> </div>
+            <h3>Do you want to be a mentee or mentor?</h3>
+            <div className="radio">
+          <label>
+            <input
+              type="radio"
+              value="Mentee"
+              checked={this.state.selectedOption === "Mentee"}
+              onChange={this.onValueChange}
+            />
+            Mentee
+          </label>
+        </div>
+        <div className="radio">
+          <label>
+            <input
+              type="radio"
+              value="Mentor"
+              checked={this.state.selectedOption === "Mentor"}
+              onChange={this.onValueChange}
+            />
+            Mentor
+          </label>
+        </div>
+        <h4>Do you know which university you’d like to attend or currently attend (in Canada)?</h4>
+            <div className="radio">
+          <label>
+            <input
+              type="radio"
+              value="No"
+              checked={this.state.selectedOption === "No"}
+              onChange={this.onValueChange}
+            />
+            No
+          </label>
+        </div>
+        <div className="radio">
+          <label>
+            <input
+              type="radio"
+              value="Yes"
+              checked={this.state.selectedOption === "Yes"}
+              onChange={this.onValueChange}
+            />
+            Yes
+          </label>
+        </div>
             <button onClick={this.handleFormSubmit} className="btn btn-primary"> Register </button>
         </form>
     </div>
