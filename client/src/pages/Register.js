@@ -73,12 +73,17 @@ class Register extends Component{
   [event.target.name]: event.target.value,
   });
   }
+
   handleFormSubmit = event => {
   event.preventDefault();
+  alert('You have registered')
   const validation = this.validator.validate(this.state);
   this.setState({
   validation
   });
+
+ 
+
   this.submitted = true;
   if(validation.isValid) {
   //success
