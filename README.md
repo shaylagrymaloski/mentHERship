@@ -84,6 +84,8 @@ install Hedera's JS SDK with the following commands:
  
  npm install react-bootstrap
 
+ npm install react-confetti
+
 ### Validator Download
 
 npm install --save validator
