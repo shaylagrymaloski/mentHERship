@@ -1,7 +1,8 @@
-# SHAYLAs notes: client folder contains react app, server folder contains nodejs. To run the react application, cd into the client folder and run the react provided instructions below
-(first run 'npm update' to make sure you have all of the packages in the client folder)
+# mentHERship
+mentHERship is a networking site that aims provide a community for women and minorities in STEM. 
 
-# Getting Started with Create React App
+#Build Instructions
+(first run 'npm update' to make sure you have all of the packages in the client folder)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -72,7 +73,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-### Hedera Hashgraph
+### Hedera Hashgraph Use Instructions
 
 install Hedera's JS SDK with the following commands:
 
