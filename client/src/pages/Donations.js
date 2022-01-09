@@ -46,7 +46,7 @@ const DonationPage = () => {
       setConfetti(1)
       setAccountId("")
       setDonationAmount("")
-      setSuccessMessage("Thank you for your donation of " + donationAmmount + "Hbar!")
+      setSuccessMessage("Thank you for your donation of " + donationAmmount + "tinybar!")
       console.log("The transfer transaction from my account to the new account was: " + transactionReceipt.status.toString());
       
     }catch(error){
@@ -79,7 +79,7 @@ const DonationPage = () => {
           <Form.Label class="registerText">Donation Amount</Form.Label>
           <Form.Control
             type="donationAmount"
-            placeholder="Donation Amount"
+            placeholder="Donation Amount (tinybar)"
             value={donationAmmount}
             onChange={(e) => setDonationAmount(e.target.value)}
           />
