@@ -11,7 +11,7 @@ import Footer from '../components/Footer';
 
 const StartPage = () => {
     return (
-      <div>
+      <div> 
             <img src={logo} className="App-logo" alt="logo" /> 
             <div> 
               <div> <Link to="/register"><img src={register} className="login"/> </Link></div>
