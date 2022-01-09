@@ -1,6 +1,10 @@
 {
   "dependencies": {
-    "react-router-dom": "^6.2.1"
+    "@hashgraph/sdk": "^2.7.0-beta.3",
+    "dotenv": "^10.0.0",
+    "react-bootstrap": "^2.1.0",
+    "react-router-dom": "^6.2.1",
+    "validator": "^13.7.0"
   },
   "resolutions": {
     "d2/left-pad": "1.1.1",
