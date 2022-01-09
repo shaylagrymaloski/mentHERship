@@ -88,5 +88,8 @@ install Hedera's JS SDK with the following commands:
 
 ### Validator Download
 
-npm install --save validator
+ npm install --save validator
 
+### Twilio Download
+
+ npm install twilio
