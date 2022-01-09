@@ -1,6 +1,7 @@
 import "../App.css";
 import React, {useState, useRef} from "react";
 import Header from "../components/Header/index"
+import Footer from "../components/Footer/index"
 
 const Login = () => {
   const [email, setEmail] = useState([])
@@ -41,16 +42,29 @@ const Login = () => {
       <form>
         <div id="loginDiv">
           <label class="registerText">Email</label>
-            <input type="text" name="email" placeholder="Email" ref={emailRef} onChange={handleEmailChange}/>
+            <input 
+              type="text" 
+              name="email" 
+              placeholder="Email" 
+              ref={emailRef} 
+              onChange={handleEmailChange}
+            />
           <br></br>
           <label class="registerText">Password</label>
-            <input type="text" name="password" placeholder="Password" ref={passwordRef} onChange={handlePasswordChange}/>
+            <input 
+              type="text" 
+              name="password" 
+              placeholder="Password" 
+              ref={passwordRef} 
+              onChange={handlePasswordChange}
+            />
         </div>
         
         <div>
           <button type="submit" onClick={handleSubmit}>Log In</button>
         </div>
       </form>
+      <Footer/>
     </div>
     
   )

@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import logo from '../logo-headtags.png';
 import Confetti from 'react-confetti'
+import Header from "../components/Header/index"
 
 
 import {Client, AccountBalanceQuery, Hbar, TransferTransaction} from "@hashgraph/sdk"; 
@@ -56,31 +57,34 @@ const DonationPage = () => {
   }
 
   return (
-    <div className="Donations">
+    <div className="container">
+      <Header />
       <Form onSubmit={onSubmit}>
         <Form.Group size="lg" controlId="accountId">
           <h1>{ 'Donate!' }</h1>
-          <h6>{ 'MentHERship relies on donations like yours to promote women helping women.' }</h6>
+          <h6>{ 'MentHERship relies on donations like yours to promote diversity in the STEM field.' }</h6>
           <h6 style={{ color: 'red' }}>{errorMessage}</h6>
           
           <Confetti opacity={confettiOn} width='1500' height='1000'/>
-          <Form.Label>Account Id</Form.Label>
-          <Form.Control
+          <Form.Label class="registerText">Account ID</Form.Label>
+          <Form.Control 
             autoFocus
+            placeholder="Account ID"
             type="accountId"
             value={accountId}
             onChange={(e) => setAccountId(e.target.value)}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="donationAmount">
-          <Form.Label>Donation Amount</Form.Label>
+          <Form.Label class="registerText">Donation Amount</Form.Label>
           <Form.Control
             type="donationAmount"
+            placeholder="Donation Amount"
             value={donationAmmount}
             onChange={(e) => setDonationAmount(e.target.value)}
           />
         </Form.Group>
-        <Button onClick ={onSubmit}>
+        <Button type="submit" onClick ={onSubmit}>
           Donate
         </Button>
         <h3>{successMessage}</h3>
