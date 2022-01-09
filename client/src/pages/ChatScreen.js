@@ -46,7 +46,7 @@ export const ChatScreen = () => {
     const maxScrollTop = scrollHeight - height;
     scrollDiv.current.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
   }
-
+  // *** fix
   async function joinChannel(channel) {
     if (channel.channelState.status !== "joined") {
       await channel.join();
@@ -62,6 +62,7 @@ export const ChatScreen = () => {
     scrollToBottom();
   }
 
+  //** fix */
   async function getToken(email) {
     const response = await axios.get(`http://localhost:5000/token/${email}`);
     const { data } = response;
@@ -76,19 +77,13 @@ export const ChatScreen = () => {
       setLoading(false);
     }
   }
+  // ** fix
+  useEffect(() => {
+    load(room, email);
+  }, []);
 
-  async function componentDidMount() {
-    //const { location } = this.props;
-    // const { state } = location || {};
-    //const { email, room } = state || {};
+  async function load(room, email) {
     let token = "";
-
-    if (!email || !room) {
-      //  this.props.history.replace("/");
-    }
-
-    setLoading(true);
-
     try {
       token = await getToken(email);
     } catch {
@@ -129,6 +124,18 @@ export const ChatScreen = () => {
         throw new Error("Unable to create channel, please reload this page");
       }
     }
+  }
+
+  function componentDidMount() {
+    //const { location } = this.props;
+    // const { state } = location || {};
+    //const { email, room } = state || {};
+
+    if (!email || !room) {
+      //  this.props.history.replace("/");
+    }
+
+    setLoading(true);
   }
 
   return (
