@@ -28,11 +28,19 @@ const DonationPage = () => {
     setErrorMessage("")
 
     //get current balance of account
-    const getBalance = await new AccountBalanceQuery()
-      .setAccountId(accountId)
-      .execute(client);
-    const balance = getBalance.hbars.toTinybars()
-    console.log("Current Account Blance = " + balance)
+    try{
+      const getBalance = await new AccountBalanceQuery()
+        .setAccountId(accountId)
+        .execute(client);
+      const balance = getBalance.hbars.toTinybars()
+      console.log("Current Account Balance = " + balance)
+    
+    //account id does not exist
+    }catch(error){
+      console.log("Invalid account id = " + accountId)
+      setErrorMessage("Oops! The account you entered does not exist😭")
+      return;
+    }
 
     //Create the transfer transaction
     try{
@@ -41,12 +49,11 @@ const DonationPage = () => {
         .addHbarTransfer(accountId, Hbar.fromTinybars(donationAmmount))
         .execute(client);
 
-      //Verify the transaction reached consensus
       const transactionReceipt = await sendHbar.getReceipt(client);
       setConfetti(1)
       setAccountId("")
       setDonationAmount("")
-      setSuccessMessage("Thank you for your donation of " + donationAmmount + "tinybar!")
+      setSuccessMessage("Thank you for your donation of " + donationAmmount + " tinybar!")
       console.log("The transfer transaction from my account to the new account was: " + transactionReceipt.status.toString());
       
     }catch(error){
