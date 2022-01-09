@@ -15,10 +15,13 @@ const StartPage = () => {
         <img src={logo} className="App-logo" alt="logo" /> 
           <div> 
               <div> <Link to="/register"><img src={register}/> </Link></div>
-              <span class="alreadyRegister">Already Registered? </span>
-              <div class="loginImage">
-                <Link to="/login"><img src={login}/> </Link>
+              <div class="loginImage" >
+                <span class="alreadyRegister">Already Registered? </span>
+                <div >
+                  <Link to="/login"><img src={login}/> </Link>
+                </div>
               </div>
+              
           </div>
             <Footer/>
       </div>

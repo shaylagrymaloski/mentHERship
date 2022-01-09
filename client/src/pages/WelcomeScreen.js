@@ -9,7 +9,6 @@ import {
   Typography,
   Button,
 } from "@material-ui/core";
-import e from "cors";
 
 export const WelcomeScreen = () => {
   const [email, setEmail] = useState("");
