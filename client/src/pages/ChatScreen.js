@@ -22,7 +22,7 @@ import { Client } from "twilio-chat";
 export const ChatScreen = () => {
   const [text, setText] = useState("");
   const [messages, setMessage] = useState("");
-  const [loading, setLoading] = useState("");
+  const [loading, setLoading] = useState(false);
   const [channel, setChannel] = useState("");
 
   const styles = {
@@ -46,25 +46,24 @@ export const ChatScreen = () => {
     const maxScrollTop = scrollHeight - height;
     scrollDiv.current.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
   }
-  // *** fix
-  async function joinChannel(channel) {
-    if (channel.channelState.status !== "joined") {
-      await channel.join();
-    }
-    setChannel(channel);
-
-    channel.on("messageAdded", this.handleMessageAdded);
-    scrollToBottom();
-  }
 
   function handleMessageAdded(message) {
     setMessage(message);
     scrollToBottom();
   }
 
-  //** fix */
+  async function joinChannel(channel) {
+    if (channel.channelState.status !== "joined") {
+      await channel.join();
+    }
+    setChannel(channel);
+
+    channel.on("messageAdded", handleMessageAdded);
+    scrollToBottom();
+  }
+
   async function getToken(email) {
-    const response = await axios.get(`http://localhost:5000/token/${email}`);
+    const response = await axios.get(`http://localhost:5001/token/${email}`);
     const { data } = response;
     return data.token;
   }
@@ -77,8 +76,9 @@ export const ChatScreen = () => {
       setLoading(false);
     }
   }
-  // ** fix
+
   useEffect(() => {
+    setLoading(true);
     load(room, email);
   }, []);
 
@@ -90,7 +90,7 @@ export const ChatScreen = () => {
       throw new Error("Unable to get token, please reload this page");
     }
 
-    const client = await Client.create(token);
+    const client = new Client(token);
 
     client.on("tokenAboutToExpire", async () => {
       const token = await getToken(email);
@@ -105,37 +105,27 @@ export const ChatScreen = () => {
     client.on("channelJoined", async (channel) => {
       // getting list of all messages since this is an existing channel
       const messages = await channel.getMessages();
-      this.setState({ messages: messages.items || [] });
-      this.scrollToBottom();
+      setMessage(messages.items || []);
+      scrollToBottom();
     });
 
     try {
       const channel = await client.getChannelByUniqueName(room);
-      this.joinChannel(channel);
+      joinChannel(channel);
     } catch (err) {
       try {
+        console.log("here");
         const channel = await client.createChannel({
           uniqueName: room,
           friendlyName: room,
         });
 
-        this.joinChannel(channel);
+        joinChannel(channel);
       } catch {
+        setLoading(false);
         throw new Error("Unable to create channel, please reload this page");
       }
     }
-  }
-
-  function componentDidMount() {
-    //const { location } = this.props;
-    // const { state } = location || {};
-    //const { email, room } = state || {};
-
-    if (!email || !room) {
-      //  this.props.history.replace("/");
-    }
-
-    setLoading(true);
   }
 
   return (
@@ -163,7 +153,12 @@ export const ChatScreen = () => {
         </Grid>
 
         <Grid item style={styles.gridItemMessage}>
-          <Grid container direction="row" justify="center" alignItems="center">
+          <Grid
+            container
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+          >
             <Grid item style={styles.textFieldContainer}>
               <TextField
                 required
