@@ -52,7 +52,8 @@ const Login = () => {
           <br></br>
           <label class="registerText">Password</label>
             <input 
-              type="text" 
+              type="password" 
+              className="form-control"
               name="password" 
               placeholder="Password" 
               ref={passwordRef} 
