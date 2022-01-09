@@ -1,6 +1,7 @@
 import "../App.css";
 import React, {Component} from "react";
 import FormValidator from '../FormValidator';
+import Header from "../components/Header/index"
 
 
 
@@ -93,26 +94,27 @@ class Register extends Component{
   let validation = this.submitted ?this.validator.validate(this.state) : this.state.validation
   return (
   <div className="container">
+    <Header />
     <div className="row">
       <div className="col-md-4 col-md-offset-4">
         <form className="registrationForm">
           <h2>Registration</h2>
           <div className={validation.email.isInvalid && 'has-error'}>
-            <label htmlFor = "first_name">First Name</label>
+            <label class="registerText" htmlFor = "first_name">First Name</label>
             <input type="string" className="form-control" name="first_name" placeholder="First Name" onChange={this.handleInputChange} /> <span className="help-block">{validation.first_name.message}</span> </div>
             <div className={validation.email.isInvalid && 'has-error'}>
-            <label htmlFor = "last_name">Last Name</label>
+            <label class="registerText" htmlFor = "last_name">Last Name</label>
             <input type="string" className="form-control" name="last_name" placeholder="Last Name" onChange={this.handleInputChange} /> <span className="help-block">{validation.last_name.message}</span> </div>
             <div className={validation.email.isInvalid && 'has-error'}>
-            <label htmlFor = "email">Email address</label>
+            <label class="registerText" htmlFor = "email">Email address</label>
             <input type="email" className="form-control" name="email" placeholder="Email address" onChange={this.handleInputChange} /> <span className="help-block">{validation.email.message}</span> </div>
             <div className={validation.password.isInvalid && 'has-error'}>
-            <label htmlFor = "password">Password</label>
+            <label class="registerText" htmlFor = "password">Password</label>
             <input type="password" className="form-control" name="password" placeholder="Password" onChange={this.handleInputChange} /> <span className="help-block">{validation.password.message}</span> </div>
             <div className={validation.password_confirmation.isInvalid && 'has-error'}>
-            <label htmlFor = "password_confirmation">Confirm Password</label>
+            <label class="registerText" htmlFor = "password_confirmation">Confirm Password</label>
             <input type="password" className="form-control" name="password_confirmation" placeholder="Confirm Password" onChange={this.handleInputChange} /> <span className="help-block">{validation.password_confirmation.message}</span> </div>
-            <h3>Do you want to be a mentee or mentor?</h3>
+            <h4>Do you want to be a mentee or mentor?</h4>
             <div className="radio">
           <label>
             <input
@@ -137,15 +139,15 @@ class Register extends Component{
         </div>
        
         <div>
-          <h5>Which university are you interested in?</h5>
+          <h4>Which university are you interested in?</h4>
           <div className={validation.email.isInvalid && 'has-error'}>
             <label htmlFor = "university">Canadian University</label>
             <input type="string" className="form-control" name="university" placeholder="University" onChange={this.handleInputChange} /> <span className="help-block">{validation.university.message}</span> </div>
         </div>
-            <button onClick={this.handleFormSubmit} className="btn btn-primary"> Register </button>
+            <button type="submit" onClick={this.handleFormSubmit} className="btn btn-primary"> Register </button>
         </form>
+      </div>
     </div>
-  </div>
   </div>
   )
   }
