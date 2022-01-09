@@ -10,11 +10,12 @@
   color: white;
   font-family: "Helvetica";
   position: relative;
+  width: 100%;
 }
 
 .App-logo {
   top: 10px;
-  height: 50vmin;
+  height: 47vmin;
   pointer-events: none;
   size: auto;
 }
@@ -120,6 +121,7 @@ input[type="text"]{
   flex-direction: column;
   padding-top: 120px;  
   padding-bottom: 150px;
+  width: 100%;
 }
 
 .startContainer{
@@ -136,4 +138,8 @@ input[type="radio"]{
 .alreadyRegister{
   font-size: 12pt;  
   display: inline;
+}
+
+.loginImage{
+  margin-top: 10px;
 }
