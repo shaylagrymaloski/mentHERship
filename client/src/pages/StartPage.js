@@ -12,12 +12,14 @@ import Footer from '../components/Footer';
 const StartPage = () => {
     return (
       <div class="startContainer">
-            <img src={logo} className="App-logo" alt="logo" /> 
-            <div> 
+        <img src={logo} className="App-logo" alt="logo" /> 
+          <div> 
               <div> <Link to="/register"><img src={register}/> </Link></div>
               <span class="alreadyRegister">Already Registered? </span>
-              <Link to="/login"><img class="loginImage" src={login}/> </Link>
-            </div>
+              <div class="loginImage">
+                <Link to="/login"><img src={login}/> </Link>
+              </div>
+          </div>
             <Footer/>
       </div>
     );

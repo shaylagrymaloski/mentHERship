@@ -84,7 +84,7 @@ const DonationPage = () => {
             onChange={(e) => setDonationAmount(e.target.value)}
           />
         </Form.Group>
-        <Button type="submit" onClick ={onSubmit}>
+        <Button className="submitButton" onClick ={onSubmit}>
           Donate
         </Button>
         <h3>{successMessage}</h3>
